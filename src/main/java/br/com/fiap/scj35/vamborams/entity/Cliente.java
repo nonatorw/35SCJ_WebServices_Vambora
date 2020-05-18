@@ -18,7 +18,6 @@ public class Cliente {
 	@Column
 	private String nome;
 	
-	@Column
 	private Viagem viagem;
 
 	public Long getId() {

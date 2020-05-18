@@ -1,6 +1,7 @@
 package br.com.fiap.scj35.vamborams.dto;
 
 import br.com.fiap.scj35.vamborams.entity.Carro;
+import br.com.fiap.scj35.vamborams.entity.Viagem;
 import br.com.fiap.scj35.vamborams.enums.StatusEnum;
 
 public class CarroDTO {
@@ -8,7 +9,7 @@ public class CarroDTO {
 	private Long id;
 	private String nome;
 	private StatusEnum status;
-	private ViagemDTO viagem;
+	private Viagem viagem;
 	
 	public CarroDTO() {	}
 	
@@ -16,7 +17,7 @@ public class CarroDTO {
 		this.id = carro.getId();
 		this.nome = carro.getNome();
 		this.status = carro.getStatus();
-		this.viagem = new ViagemDTO(carro.getViagem()); 
+		this.viagem = carro.getViagem(); 
 	}
 	
 	public Long getId() {
@@ -37,10 +38,10 @@ public class CarroDTO {
 	public void setStatus(StatusEnum status) {
 		this.status = status;
 	}
-	public ViagemDTO getViagem() {
+	public Viagem getViagem() {
 		return viagem;
 	}
-	public void setViagem(ViagemDTO viagem) {
+	public void setViagem(Viagem viagem) {
 		this.viagem = viagem;
 	}
 	
