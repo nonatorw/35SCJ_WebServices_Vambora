@@ -18,5 +18,4 @@ public class CarroController {
 	public CarroDTO findDisponivel() {
 		return service.findByStatus(StatusEnum.DISPONIVEL).stream().findAny().orElse(null);
 	}
-	
 }
