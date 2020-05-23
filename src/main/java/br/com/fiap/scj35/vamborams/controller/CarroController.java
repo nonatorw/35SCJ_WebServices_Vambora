@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.fiap.scj35.vamborams.dto.CarroDTO;
-import br.com.fiap.scj35.vamborams.enums.StatusEnum;
 import br.com.fiap.scj35.vamborams.service.CarroService;
 
 @RestController
@@ -18,7 +17,7 @@ public class CarroController {
 
     @GetMapping
     public CarroDTO findDisponivel() {
-        return service.findByStatus(StatusEnum.DISPONIVEL).stream().findAny().orElse(null);
+        return service.findByDisponivel().stream().findAny().orElse(null);
     }
 
 }

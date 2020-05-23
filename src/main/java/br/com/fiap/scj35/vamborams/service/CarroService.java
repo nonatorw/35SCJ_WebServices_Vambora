@@ -9,6 +9,6 @@ import br.com.fiap.scj35.vamborams.enums.StatusEnum;
 
 public interface CarroService {
 
-	List<CarroDTO> findByStatus(StatusEnum status);
+	List<CarroDTO> findByDisponivel();
 	
 }

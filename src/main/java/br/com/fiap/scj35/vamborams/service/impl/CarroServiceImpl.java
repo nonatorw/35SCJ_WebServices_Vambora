@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import br.com.fiap.scj35.vamborams.dto.CarroDTO;
 import br.com.fiap.scj35.vamborams.entity.Carro;
-import br.com.fiap.scj35.vamborams.enums.StatusEnum;
 import br.com.fiap.scj35.vamborams.repository.CarroRepository;
 import br.com.fiap.scj35.vamborams.service.CarroService;
 
@@ -19,8 +18,8 @@ public class CarroServiceImpl implements CarroService {
 	private CarroRepository repository;
 
 	@Override
-	public List<CarroDTO> findByStatus(StatusEnum status) {
-		List<Carro> carros = repository.findAllByStatus(status);
+	public List<CarroDTO> findByDisponivel() {
+		List<Carro> carros = repository.findAllByDisponivel(Boolean.TRUE);
 		return carros.stream()
 				.map(carro -> new CarroDTO(carro))
 				.collect(Collectors.toList());
