@@ -11,31 +11,42 @@ import javax.persistence.Table;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
-@Table(name = "CLIENTE")
+@Table(name = "TB_CLIENTES")
 @EntityListeners(AuditingEntityListener.class)
 public class Cliente {
-	
-	@Id
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	@Column
-	private String nome;
-	
-	public Long getId() {
-		return id;
-	}
+    private Long id;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @Column
+    private String nome;
 
-	public String getNome() {
-		return nome;
-	}
+    @Column
+    private Integer documento;
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Integer getDocumento() {
+        return documento;
+    }
+
+    public void setDocumento(Integer documento) {
+        this.documento = documento;
+    }
 
 }
