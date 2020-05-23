@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.com.fiap.scj35.vamborams.dto.CarroDTO;
 import br.com.fiap.scj35.vamborams.entity.Carro;
@@ -11,6 +12,7 @@ import br.com.fiap.scj35.vamborams.enums.StatusEnum;
 import br.com.fiap.scj35.vamborams.repository.CarroRepository;
 import br.com.fiap.scj35.vamborams.service.CarroService;
 
+@Service
 public class CarroServiceImpl implements CarroService {
 	
 	@Autowired

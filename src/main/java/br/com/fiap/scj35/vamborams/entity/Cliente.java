@@ -22,8 +22,6 @@ public class Cliente {
 	@Column
 	private String nome;
 	
-	private Viagem viagem;
-
 	public Long getId() {
 		return id;
 	}
@@ -38,14 +36,6 @@ public class Cliente {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public Viagem getViagem() {
-		return viagem;
-	}
-
-	public void setViagem(Viagem viagem) {
-		this.viagem = viagem;
 	}
 
 }

@@ -14,7 +14,6 @@ public class ClienteDTO {
 	public ClienteDTO(Cliente cliente) {
 		this.id = cliente.getId();
 		this.nome = cliente.getNome();
-		this.viagem = cliente.getViagem();
 	}
 	
 	public Long getId() {

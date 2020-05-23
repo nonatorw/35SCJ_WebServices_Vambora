@@ -30,8 +30,6 @@ public class Carro {
 	@Enumerated(EnumType.STRING)
 	private StatusEnum status;
 	
-	private Viagem viagem;
-
 	public Long getId() {
 		return id;
 	}
@@ -54,14 +52,6 @@ public class Carro {
 
 	public void setStatus(StatusEnum status) {
 		this.status = status;
-	}
-
-	public Viagem getViagem() {
-		return viagem;
-	}
-
-	public void setViagem(Viagem viagem) {
-		this.viagem = viagem;
 	}
 
 }

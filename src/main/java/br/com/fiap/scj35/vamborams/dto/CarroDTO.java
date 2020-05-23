@@ -10,7 +10,6 @@ public class CarroDTO {
 	private String nome;
 	private StatusEnum status;
 	private Viagem viagem;
-	private LocalizacaoDTO localizacao;
 	
 	public CarroDTO() {	}
 	
@@ -18,7 +17,6 @@ public class CarroDTO {
 		this.id = carro.getId();
 		this.nome = carro.getNome();
 		this.status = carro.getStatus();
-		this.viagem = carro.getViagem(); 
 	}
 	
 	public Long getId() {
@@ -44,11 +42,5 @@ public class CarroDTO {
 	}
 	public void setViagem(Viagem viagem) {
 		this.viagem = viagem;
-	}
-	public LocalizacaoDTO getLocalizacao() {
-		return localizacao;
-	}
-	public void setLocalizacao(LocalizacaoDTO localizacao) {
-		this.localizacao = localizacao;
 	}
 }
