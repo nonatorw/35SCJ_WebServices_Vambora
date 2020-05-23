@@ -1,41 +1,41 @@
 package br.com.fiap.scj35.vamborams.dto;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.StringJoiner;
 
-import br.com.fiap.scj35.vamborams.entity.Localizacao;
 import br.com.fiap.scj35.vamborams.entity.Viagem;
 
-public class ViagemDTO {
+public class ViagemDTO implements Serializable {
     private Long          id;
     private Long          idCarro;
     private Long          idCliente;
-    private Localizacao   origem;
-    private Localizacao   destino;
+    private Long          idLocalizacaoOrigem;
+    private Long          idLocalizacaoDestino;
     private LocalDateTime partida;
     private LocalDateTime chegada;
 
     public ViagemDTO() {}
 
-    public ViagemDTO(Long id ,Long idCarro ,Long idCliente ,Localizacao origem ,Localizacao destino ,
+    public ViagemDTO(Long id ,Long idCarro ,Long idCliente ,Long idLocalizacaoOrigem ,Long idLocalizacaoDestino ,
                      LocalDateTime partida ,LocalDateTime chegada) {
-        this.id        = id;
-        this.idCarro   = idCarro;
-        this.idCliente = idCliente;
-        this.origem    = origem;
-        this.destino   = destino;
-        this.partida   = partida;
-        this.chegada   = chegada;
+        this.id                   = id;
+        this.idCarro              = idCarro;
+        this.idCliente            = idCliente;
+        this.idLocalizacaoOrigem  = idLocalizacaoOrigem;
+        this.idLocalizacaoDestino = idLocalizacaoDestino;
+        this.partida              = partida;
+        this.chegada              = chegada;
     }
 
     public ViagemDTO(Viagem viagem) {
-        this.id        = viagem.getId();
-        this.idCarro   = viagem.getIdCarro();
-        this.idCliente = viagem.getIdCliente();
-        this.origem    = viagem.getOrigem();
-        this.destino   = viagem.getDestino();
-        this.partida   = viagem.getPartida();
-        this.chegada   = viagem.getChegada();
+        this.id                   = viagem.getId();
+        this.idCarro              = viagem.getIdCarro();
+        this.idCliente            = viagem.getIdCliente();
+        this.idLocalizacaoOrigem  = viagem.getIdLocalizacaoOrigem();
+        this.idLocalizacaoDestino = viagem.getIdLocalizacaoDestino();
+        this.partida              = viagem.getPartida();
+        this.chegada              = viagem.getChegada();
     }
 
     public Long getId() {
@@ -62,20 +62,20 @@ public class ViagemDTO {
         this.idCliente = idCliente;
     }
 
-    public Localizacao getOrigem() {
-        return origem;
+    public Long getIdLocalizacaoOrigem() {
+        return idLocalizacaoOrigem;
     }
 
-    public void setOrigem(Localizacao origem) {
-        this.origem = origem;
+    public void setIdLocalizacaoOrigem(Long idLocalizacaoOrigem) {
+        this.idLocalizacaoOrigem = idLocalizacaoOrigem;
     }
 
-    public Localizacao getDestino() {
-        return destino;
+    public Long getIdLocalizacaoDestino() {
+        return idLocalizacaoDestino;
     }
 
-    public void setDestino(Localizacao destino) {
-        this.destino = destino;
+    public void setIdLocalizacaoDestino(Long idLocalizacaoDestino) {
+        this.idLocalizacaoDestino = idLocalizacaoDestino;
     }
 
     public LocalDateTime getPartida() {
@@ -96,9 +96,15 @@ public class ViagemDTO {
 
     @Override
     public String toString() {
-        return new StringJoiner(", " ,ViagemDTO.class.getSimpleName() + "[" ,"]").add("id=" + id).add(
-                "idCarro=" + idCarro).add("idCliente=" + idCliente).add("origem='" + origem + "'").add(
-                "destino='" + destino + "'").add("partida=" + partida).add("chegada=" + chegada).toString();
+        return new StringJoiner(", " ,ViagemDTO.class.getSimpleName() + "[" ,"]")
+                .add("id=" + id)
+                .add("idCarro=" + idCarro)
+                .add("idCliente=" + idCliente)
+                .add("idLocalizacaoOrigem=" + idLocalizacaoOrigem)
+                .add("idLocalizacaoDestino=" + idLocalizacaoDestino)
+                .add("partida=" + partida)
+                .add("chegada=" + chegada)
+                .toString();
     }
 
 }

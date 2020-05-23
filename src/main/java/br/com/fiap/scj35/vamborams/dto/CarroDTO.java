@@ -1,24 +1,27 @@
 package br.com.fiap.scj35.vamborams.dto;
 
+import java.io.Serializable;
 import java.util.StringJoiner;
 
 import br.com.fiap.scj35.vamborams.entity.Carro;
 
-public class CarroDTO {
-
+public class CarroDTO implements Serializable {
     private Long    id;
     private String  placa;
     private Boolean disponivel;
+    private Long    idUltimaViagem;
 
-    public CarroDTO(String placa ,Boolean disponivel) {
-        this.placa      = placa;
-        this.disponivel = disponivel;
+    public CarroDTO(String placa ,Boolean disponivel ,Long idUltimaViagem) {
+        this.placa          = placa;
+        this.disponivel     = disponivel;
+        this.idUltimaViagem = idUltimaViagem;
     }
 
     public CarroDTO(Carro carro) {
-        this.id         = carro.getId();
-        this.placa      = carro.getPlaca();
-        this.disponivel = carro.isDisponivel();
+        this.id             = carro.getId();
+        this.placa          = carro.getPlaca();
+        this.disponivel     = carro.isDisponivel();
+        this.idUltimaViagem = carro.getIdUltimaViagem();
     }
 
     public Long getId() {
@@ -45,12 +48,21 @@ public class CarroDTO {
         this.disponivel = !this.isDisponivel();
     }
 
+    public Long getIdUltimaViagem() {
+        return idUltimaViagem;
+    }
+
+    public void setIdUltimaViagem(Long idUltimaViagem) {
+        this.idUltimaViagem = idUltimaViagem;
+    }
+
     @Override
     public String toString() {
         return new StringJoiner(", " ,CarroDTO.class.getSimpleName() + "[" ,"]")
                 .add("id=" + id)
                 .add("placa='" + placa + "'")
                 .add("disponivel=" + disponivel)
+                .add("idUltimaViagem=" + idUltimaViagem)
                 .toString();
     }
 
