@@ -25,6 +25,9 @@ public class Carro {
     @Column
     private Boolean disponivel;
 
+    @Column
+    private Long idUltimaViagem;
+
     public Long getId() {
         return id;
     }
@@ -47,6 +50,14 @@ public class Carro {
 
     public void toggleDisponivel() {
         this.disponivel = !this.isDisponivel();
+    }
+
+    public Long getIdUltimaViagem() {
+        return idUltimaViagem;
+    }
+
+    public void setIdUltimaViagem(Long idUltimaViagem) {
+        this.idUltimaViagem = idUltimaViagem;
     }
 
 }

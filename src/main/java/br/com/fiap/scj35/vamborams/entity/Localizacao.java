@@ -15,13 +15,13 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 public class Localizacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long          id;
+    private Long id;
 
     @Column
-    private String        latitude;
+    private Double longitude;
 
     @Column
-    private String        longitude;
+    private Double latitude;
 
     @Column
     private LocalDateTime dataHoraLocalizacao;
@@ -34,20 +34,20 @@ public class Localizacao {
         this.id = id;
     }
 
-    public String getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
-    }
-
-    public String getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(String longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
     }
 
     public LocalDateTime getDataHoraLocalizacao() {
