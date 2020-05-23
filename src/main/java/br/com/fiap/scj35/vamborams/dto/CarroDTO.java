@@ -1,46 +1,57 @@
 package br.com.fiap.scj35.vamborams.dto;
 
+import java.util.StringJoiner;
+
 import br.com.fiap.scj35.vamborams.entity.Carro;
-import br.com.fiap.scj35.vamborams.entity.Viagem;
-import br.com.fiap.scj35.vamborams.enums.StatusEnum;
 
 public class CarroDTO {
-	
-	private Long id;
-	private String nome;
-	private StatusEnum status;
-	private Viagem viagem;
-	
-	public CarroDTO() {	}
-	
-	public CarroDTO(Carro carro) {
-		this.id = carro.getId();
-		this.nome = carro.getNome();
-		this.status = carro.getStatus();
-	}
-	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	public StatusEnum getStatus() {
-		return status;
-	}
-	public void setStatus(StatusEnum status) {
-		this.status = status;
-	}
-	public Viagem getViagem() {
-		return viagem;
-	}
-	public void setViagem(Viagem viagem) {
-		this.viagem = viagem;
-	}
+
+    private Long    id;
+    private String  placa;
+    private Boolean disponivel;
+
+    public CarroDTO(String placa ,Boolean disponivel) {
+        this.placa      = placa;
+        this.disponivel = disponivel;
+    }
+
+    public CarroDTO(Carro carro) {
+        this.id         = carro.getId();
+        this.placa      = carro.getPlaca();
+        this.disponivel = carro.isDisponivel();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
+    public Boolean isDisponivel() {
+        return this.isDisponivel();
+    }
+
+    public void toggleDisponivel() {
+        this.disponivel = !this.isDisponivel();
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", " ,CarroDTO.class.getSimpleName() + "[" ,"]")
+                .add("id=" + id)
+                .add("placa='" + placa + "'")
+                .add("disponivel=" + disponivel)
+                .toString();
+    }
+
 }
