@@ -2,26 +2,23 @@ package br.com.fiap.scj35.vamborams.dto;
 
 import java.time.LocalDateTime;
 import java.util.StringJoiner;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
+import br.com.fiap.scj35.vamborams.entity.Localizacao;
 import br.com.fiap.scj35.vamborams.entity.Viagem;
 
 public class ViagemDTO {
     private Long          id;
     private Long          idCarro;
     private Long          idCliente;
-    private String        origem;
-    private String        destino;
+    private Localizacao   origem;
+    private Localizacao   destino;
     private LocalDateTime partida;
     private LocalDateTime chegada;
 
     public ViagemDTO() {}
 
-    public ViagemDTO(Long id ,Long idCarro ,Long idCliente ,String origem ,String destino ,LocalDateTime partida ,
-                     LocalDateTime chegada) {
+    public ViagemDTO(Long id ,Long idCarro ,Long idCliente ,Localizacao origem ,Localizacao destino ,
+                     LocalDateTime partida ,LocalDateTime chegada) {
         this.id        = id;
         this.idCarro   = idCarro;
         this.idCliente = idCliente;
@@ -65,19 +62,19 @@ public class ViagemDTO {
         this.idCliente = idCliente;
     }
 
-    public String getOrigem() {
+    public Localizacao getOrigem() {
         return origem;
     }
 
-    public void setOrigem(String origem) {
+    public void setOrigem(Localizacao origem) {
         this.origem = origem;
     }
 
-    public String getDestino() {
+    public Localizacao getDestino() {
         return destino;
     }
 
-    public void setDestino(String destino) {
+    public void setDestino(Localizacao destino) {
         this.destino = destino;
     }
 
@@ -99,14 +96,9 @@ public class ViagemDTO {
 
     @Override
     public String toString() {
-        return new StringJoiner(", " ,ViagemDTO.class.getSimpleName() + "[" ,"]")
-                .add("id=" + id)
-                .add("idCarro=" + idCarro)
-                .add("idCliente=" + idCliente)
-                .add("origem='" + origem + "'")
-                .add("destino='" + destino + "'")
-                .add("partida=" + partida)
-                .add("chegada=" + chegada).toString();
+        return new StringJoiner(", " ,ViagemDTO.class.getSimpleName() + "[" ,"]").add("id=" + id).add(
+                "idCarro=" + idCarro).add("idCliente=" + idCliente).add("origem='" + origem + "'").add(
+                "destino='" + destino + "'").add("partida=" + partida).add("chegada=" + chegada).toString();
     }
 
 }

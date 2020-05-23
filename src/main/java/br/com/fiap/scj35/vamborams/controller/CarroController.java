@@ -13,11 +13,12 @@ import br.com.fiap.scj35.vamborams.service.CarroService;
 @RequestMapping("carros")
 public class CarroController {
 
-	@Autowired
-	private CarroService service;
-	
-	@GetMapping
-	public CarroDTO findDisponivel() {
-		return service.findByStatus(StatusEnum.DISPONIVEL).stream().findAny().orElse(null);
-	}
+    @Autowired
+    private CarroService service;
+
+    @GetMapping
+    public CarroDTO findDisponivel() {
+        return service.findByStatus(StatusEnum.DISPONIVEL).stream().findAny().orElse(null);
+    }
+
 }
