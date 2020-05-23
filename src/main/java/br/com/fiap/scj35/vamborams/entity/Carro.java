@@ -3,8 +3,6 @@ package br.com.fiap.scj35.vamborams.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,46 +10,43 @@ import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import br.com.fiap.scj35.vamborams.enums.StatusEnum;
-
 @Entity
-@Table(name = "CARRO")
+@Table(name = "TB_CARROS")
 @EntityListeners(AuditingEntityListener.class)
 public class Carro {
-	
-	@Id
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    private Long id;
 
-	@Column
-	private String nome;
-	
-	@Column
-	@Enumerated(EnumType.STRING)
-	private StatusEnum status;
-	
-	public Long getId() {
-		return id;
-	}
+    @Column
+    private String placa;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @Column
+    private Boolean disponivel;
 
-	public String getNome() {
-		return nome;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public StatusEnum getStatus() {
-		return status;
-	}
+    public String getPlaca() {
+        return placa;
+    }
 
-	public void setStatus(StatusEnum status) {
-		this.status = status;
-	}
+    public void setPlaca(String nome) {
+        this.placa = nome;
+    }
+
+    public Boolean isDisponivel() {
+        return this.isDisponivel();
+    }
+
+    public void toggleDisponivel() {
+        this.disponivel = !this.isDisponivel();
+    }
 
 }
