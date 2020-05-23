@@ -1,6 +1,11 @@
 CREATE TABLE if not exists VIAGEM (
   id bigint NOT NULL AUTO_INCREMENT,
-  origem varchar(200) NOT NULL,
-  destino varchar(200) NOT NULL,
+  id_carro bigint,
+  id_cliente bigint,
+  origem bigint,
+  destino bigint,
+  dh_partida timestamp,
+  dh_CHEGADA timestamp,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
