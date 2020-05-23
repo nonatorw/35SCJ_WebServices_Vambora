@@ -1,13 +1,32 @@
 package br.com.fiap.scj35.vamborams.dto;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.StringJoiner;
 
-public class LocalizacaoDTO {
+import br.com.fiap.scj35.vamborams.entity.Localizacao;
+
+public class LocalizacaoDTO implements Serializable {
     private long          id;
     private Double        longitude;
     private Double        latitude;
     private LocalDateTime dataHoraLocalizacao;
+
+    public LocalizacaoDTO() {}
+
+    public LocalizacaoDTO(long id ,Double longitude ,Double latitude ,LocalDateTime dataHoraLocalizacao) {
+        this.id                  = id;
+        this.longitude           = longitude;
+        this.latitude            = latitude;
+        this.dataHoraLocalizacao = dataHoraLocalizacao;
+    }
+
+    public LocalizacaoDTO(Localizacao localizacao) {
+        this.id                  = localizacao.getId();
+        this.longitude           = localizacao.getLongitude();
+        this.latitude            = localizacao.getLatitude();
+        this.dataHoraLocalizacao = localizacao.getDataHoraLocalizacao();
+    }
 
     public Long getId() {
         return id;
@@ -43,11 +62,9 @@ public class LocalizacaoDTO {
 
     @Override
     public String toString() {
-        return new StringJoiner(", " ,LocalizacaoDTO.class.getSimpleName() + "[" ,"]")
-                .add("id=" + id)
-                .add("longitude=" + longitude).add("latitude=" + latitude)
-                .add("dataHoraLocalizacao=" + dataHoraLocalizacao)
-                .toString();
+        return new StringJoiner(", " ,LocalizacaoDTO.class.getSimpleName() + "[" ,"]").add("id=" + id).add(
+                "longitude=" + longitude).add("latitude=" + latitude).add("dataHoraLocalizacao=" + dataHoraLocalizacao)
+                                                                                      .toString();
     }
 
 }

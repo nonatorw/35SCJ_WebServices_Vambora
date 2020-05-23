@@ -7,7 +7,6 @@ import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -27,11 +26,11 @@ public class Viagem {
     @Column
     private Long idCliente;
 
-    @OneToOne
-    private Localizacao origem;
+    @Column
+    private Long idLocalizacaoOrigem;
 
-    @OneToOne
-    private Localizacao destino;
+    @Column
+    private Long idLocalizacaoDestino;
 
     @Column
     private LocalDateTime partida;
@@ -63,20 +62,20 @@ public class Viagem {
         this.idCliente = idCliente;
     }
 
-    public Localizacao getOrigem() {
-        return origem;
+    public Long getIdLocalizacaoOrigem() {
+        return idLocalizacaoOrigem;
     }
 
-    public void setOrigem(Localizacao origem) {
-        this.origem = origem;
+    public void setIdLocalizacaoOrigem(Long idLocalizacaoOrigem) {
+        this.idLocalizacaoOrigem = idLocalizacaoOrigem;
     }
 
-    public Localizacao getDestino() {
-        return destino;
+    public Long getIdLocalizacaoDestino() {
+        return idLocalizacaoDestino;
     }
 
-    public void setDestino(Localizacao destino) {
-        this.destino = destino;
+    public void setIdLocalizacaoDestino(Long idLocalizacaoDestino) {
+        this.idLocalizacaoDestino = idLocalizacaoDestino;
     }
 
     public LocalDateTime getPartida() {
