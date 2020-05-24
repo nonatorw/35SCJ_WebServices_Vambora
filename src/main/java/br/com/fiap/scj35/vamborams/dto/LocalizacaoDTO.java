@@ -14,6 +14,12 @@ public class LocalizacaoDTO implements Serializable {
 
     public LocalizacaoDTO() {}
 
+    public LocalizacaoDTO(Double longitude ,Double latitude ,LocalDateTime dataHoraLocalizacao) {
+        this.longitude           = longitude;
+        this.latitude            = latitude;
+        this.dataHoraLocalizacao = dataHoraLocalizacao;
+    }
+
     public LocalizacaoDTO(long id ,Double longitude ,Double latitude ,LocalDateTime dataHoraLocalizacao) {
         this.id                  = id;
         this.longitude           = longitude;

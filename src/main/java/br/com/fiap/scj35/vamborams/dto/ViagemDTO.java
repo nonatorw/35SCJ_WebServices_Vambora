@@ -13,21 +13,37 @@ public class ViagemDTO implements Serializable {
     private Long             idCliente;
     private Long             idLocalizacaoOrigem;
     private Long             idLocalizacaoDestino;
-    private LocalDateTime    partida;
-    private LocalDateTime    chegada;
+    private LocalDateTime    dataHoraSolicitacao;
+    private LocalDateTime    dataHoraPartida;
+    private LocalDateTime    dataHoraChegada;
     private StatusViagemEnum statusViagem;
 
     public ViagemDTO() {}
 
+    public ViagemDTO(Long idCarro ,Long idCliente ,Long idLocalizacaoOrigem ,Long idLocalizacaoDestino ,
+                     LocalDateTime dataHoraSolicitacao ,LocalDateTime dataHoraPartida ,LocalDateTime dataHoraChegada ,
+                     StatusViagemEnum statusViagem) {
+        this.idCarro              = idCarro;
+        this.idCliente            = idCliente;
+        this.idLocalizacaoOrigem  = idLocalizacaoOrigem;
+        this.idLocalizacaoDestino = idLocalizacaoDestino;
+        this.dataHoraSolicitacao  = dataHoraSolicitacao;
+        this.dataHoraPartida      = dataHoraPartida;
+        this.dataHoraChegada      = dataHoraChegada;
+        this.statusViagem         = statusViagem;
+    }
+
     public ViagemDTO(Long id ,Long idCarro ,Long idCliente ,Long idLocalizacaoOrigem ,Long idLocalizacaoDestino ,
-                     LocalDateTime partida ,LocalDateTime chegada ,StatusViagemEnum statusViagem) {
+                     LocalDateTime dataHoraSolicitacao ,LocalDateTime dataHoraPartida ,LocalDateTime dataHoraChegada ,
+                     StatusViagemEnum statusViagem) {
         this.id                   = id;
         this.idCarro              = idCarro;
         this.idCliente            = idCliente;
         this.idLocalizacaoOrigem  = idLocalizacaoOrigem;
         this.idLocalizacaoDestino = idLocalizacaoDestino;
-        this.partida              = partida;
-        this.chegada              = chegada;
+        this.dataHoraSolicitacao  = dataHoraSolicitacao;
+        this.dataHoraPartida      = dataHoraPartida;
+        this.dataHoraChegada      = dataHoraChegada;
         this.statusViagem         = statusViagem;
     }
 
@@ -37,8 +53,9 @@ public class ViagemDTO implements Serializable {
         this.idCliente            = viagem.getIdCliente();
         this.idLocalizacaoOrigem  = viagem.getIdLocalizacaoOrigem();
         this.idLocalizacaoDestino = viagem.getIdLocalizacaoDestino();
-        this.partida              = viagem.getPartida();
-        this.chegada              = viagem.getChegada();
+        this.dataHoraSolicitacao  = viagem.getDataHoraSolicitacao();
+        this.dataHoraPartida      = viagem.getDataHoraPartida();
+        this.dataHoraChegada      = viagem.getDataHoraChegada();
         this.statusViagem         = viagem.getStatusViagem();
     }
 
@@ -82,32 +99,49 @@ public class ViagemDTO implements Serializable {
         this.idLocalizacaoDestino = idLocalizacaoDestino;
     }
 
-    public LocalDateTime getPartida() {
-        return partida;
+    public LocalDateTime getDataHoraSolicitacao() {
+        return dataHoraSolicitacao;
     }
 
-    public void setPartida(LocalDateTime partida) {
-        this.partida = partida;
+    public void setDataHoraSolicitacao(LocalDateTime dataHoraSolicitacao) {
+        this.dataHoraSolicitacao = dataHoraSolicitacao;
     }
 
-    public LocalDateTime getChegada() {
-        return chegada;
+    public LocalDateTime getDataHoraPartida() {
+        return dataHoraPartida;
     }
 
-    public void setChegada(LocalDateTime chegada) {
-        this.chegada = chegada;
+    public void setDataHoraPartida(LocalDateTime dataHoraPartida) {
+        this.dataHoraPartida = dataHoraPartida;
+    }
+
+    public LocalDateTime getDataHoraChegada() {
+        return dataHoraChegada;
+    }
+
+    public void setDataHoraChegada(LocalDateTime dataHoraChegada) {
+        this.dataHoraChegada = dataHoraChegada;
+    }
+
+    public StatusViagemEnum getStatusViagem() {
+        return statusViagem;
+    }
+
+    public void setStatusViagem(StatusViagemEnum statusViagem) {
+        this.statusViagem = statusViagem;
     }
 
     @Override
     public String toString() {
         return new StringJoiner(", " ,ViagemDTO.class.getSimpleName() + "[" ,"]")
-                .add("id =" + id)
+                .add("id=" + id)
                 .add("idCarro=" + idCarro)
                 .add("idCliente=" + idCliente)
                 .add("idLocalizacaoOrigem=" + idLocalizacaoOrigem)
                 .add("idLocalizacaoDestino=" + idLocalizacaoDestino)
-                .add("partida=" + partida)
-                .add("chegada=" + chegada)
+                .add("dataHoraSolicitacao=" + dataHoraSolicitacao)
+                .add("dataHoraPartida=" + dataHoraPartida)
+                .add("dataHoraChegada=" + dataHoraChegada)
                 .add("statusViagem=" + statusViagem)
                 .toString();
     }

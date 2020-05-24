@@ -17,6 +17,13 @@ public class CarroDTO implements Serializable {
         this.idUltimaViagem = idUltimaViagem;
     }
 
+    public CarroDTO(Long id ,String placa ,Boolean disponivel ,Long idUltimaViagem) {
+        this.id             = id;
+        this.placa          = placa;
+        this.disponivel     = disponivel;
+        this.idUltimaViagem = idUltimaViagem;
+    }
+
     public CarroDTO(Carro carro) {
         this.id             = carro.getId();
         this.placa          = carro.getPlaca();

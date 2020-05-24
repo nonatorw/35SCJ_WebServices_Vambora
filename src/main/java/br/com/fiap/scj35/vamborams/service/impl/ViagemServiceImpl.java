@@ -1,6 +1,5 @@
 package br.com.fiap.scj35.vamborams.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,26 +20,45 @@ public class ViagemServiceImpl implements ViagemService {
     @Autowired
     private ViagemConverter converter;
 
+    private ViagemDTO handleReturnedViagem(Viagem inViagem) {
+        ViagemDTO outViagem = null;
+
+        if (inViagem != null) {
+            outViagem = converter.toDTO(inViagem);
+        }
+
+        return outViagem;
+    }
+
+    private List<ViagemDTO> handleReturnedViagemList(List<Viagem> inViagens) {
+        List<ViagemDTO> outViagens = null;
+
+        if (!inViagens.isEmpty()) {
+            outViagens = converter.toListDTO(inViagens);
+        }
+
+        return outViagens;
+    }
+
+    private ViagemDTO saveOrUpdate(ViagemDTO inViagem) {
+        Viagem save = repository.save(converter.toEntity(inViagem));
+
+        return converter.toDTO(save);
+    }
+
     @Override
     public List<ViagemDTO> findByCliente(Long idCliente) {
-        List<Viagem> viagens = new ArrayList<>();
-        viagens.addAll(repository.findByIdCliente(idCliente));
-
-        return viagens.isEmpty() ? null : converter.toListDTO(viagens);
+        return this.handleReturnedViagemList(repository.findByIdCliente(idCliente));
     }
 
     @Override
     public ViagemDTO create(ViagemDTO viagemDTO) {
-        Viagem viagem = converter.toEntity(viagemDTO);
-
-        return converter.toDTO(repository.save(viagem));
+        return this.saveOrUpdate(viagemDTO);
     }
 
     @Override
     public ViagemDTO update(ViagemDTO viagemDTO) {
-        Viagem viagem = converter.toEntity(viagemDTO);
-
-        return converter.toDTO(repository.save(viagem));
+        return this.saveOrUpdate(viagemDTO);
     }
 
 }

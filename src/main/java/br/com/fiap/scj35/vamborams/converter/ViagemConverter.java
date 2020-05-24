@@ -29,8 +29,10 @@ public class ViagemConverter {
         viagem.setIdCliente(viagemDTO.getIdCliente());
         viagem.setIdLocalizacaoOrigem(viagemDTO.getIdLocalizacaoOrigem());
         viagem.setIdLocalizacaoDestino(viagemDTO.getIdLocalizacaoDestino());
-        viagem.setPartida(viagemDTO.getPartida());
-        viagem.setChegada(viagemDTO.getChegada());
+        viagem.setDataHoraSolicitacao(viagemDTO.getDataHoraSolicitacao());
+        viagem.setDataHoraPartida(viagemDTO.getDataHoraPartida());
+        viagem.setDataHoraChegada(viagemDTO.getDataHoraChegada());
+        viagem.setStatusViagem(viagemDTO.getStatusViagem());
 
         return viagem;
     }

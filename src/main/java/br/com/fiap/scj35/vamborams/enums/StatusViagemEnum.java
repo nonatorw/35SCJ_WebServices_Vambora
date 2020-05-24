@@ -1,11 +1,13 @@
 package br.com.fiap.scj35.vamborams.enums;
 
 public enum StatusViagemEnum {
-    INICIANDO_VIAGEM(0),
-    INDO_ATE_CLIENTE(1),
-    CARRO_NA_ORIGEM(2),
-    INICIADA(3),
-    FINALIZADA(4);
+    VIAGEM_SOLICITADA(0),
+    CARRO_INDO_AO_CLIENTE(1),
+    CARRO_CHEGOU_A_ORIGEM(2),
+    VIAGEM_INICIADA(3),
+    CARRO_CHEGOU_AO_DESTINO(4),
+    VIAGEM_FINALIZADA(5),
+    VIAGEM_CANCELADA(9);
 
     private Integer status;
 

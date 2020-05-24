@@ -1,23 +1,32 @@
 package br.com.fiap.scj35.vamborams.dto;
 
+import java.io.Serializable;
 import java.util.StringJoiner;
 
 import br.com.fiap.scj35.vamborams.entity.Cliente;
 
-public class ClienteDTO {
+public class ClienteDTO implements Serializable {
     private Long    id;
     private String  nome;
     private Integer documento;
 
     public ClienteDTO() { }
 
-    public ClienteDTO(String nome) {
-        this.nome = nome;
+    public ClienteDTO(String nome ,Integer documento) {
+        this.nome      = nome;
+        this.documento = documento;
+    }
+
+    public ClienteDTO(Long id ,String nome ,Integer documento) {
+        this.id        = id;
+        this.nome      = nome;
+        this.documento = documento;
     }
 
     public ClienteDTO(Cliente cliente) {
-        this.id   = cliente.getId();
-        this.nome = cliente.getNome();
+        this.id        = cliente.getId();
+        this.nome      = cliente.getNome();
+        this.documento = cliente.getDocumento();
     }
 
     public Long getId() {

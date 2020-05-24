@@ -35,10 +35,13 @@ public class Viagem {
     private Long idLocalizacaoDestino;
 
     @Column
-    private LocalDateTime partida;
+    private LocalDateTime dataHoraSolicitacao;
 
     @Column
-    private LocalDateTime chegada;
+    private LocalDateTime dataHoraPartida;
+
+    @Column
+    private LocalDateTime dataHoraChegada;
 
     @Column
     private StatusViagemEnum statusViagem;
@@ -83,20 +86,28 @@ public class Viagem {
         this.idLocalizacaoDestino = idLocalizacaoDestino;
     }
 
-    public LocalDateTime getPartida() {
-        return partida;
+    public LocalDateTime getDataHoraSolicitacao() {
+        return dataHoraSolicitacao;
     }
 
-    public void setPartida(LocalDateTime partida) {
-        this.partida = partida;
+    public void setDataHoraSolicitacao(LocalDateTime dataHoraSolicitacao) {
+        this.dataHoraSolicitacao = dataHoraSolicitacao;
     }
 
-    public LocalDateTime getChegada() {
-        return chegada;
+    public LocalDateTime getDataHoraPartida() {
+        return dataHoraPartida;
     }
 
-    public void setChegada(LocalDateTime chegada) {
-        this.chegada = chegada;
+    public void setDataHoraPartida(LocalDateTime dataHoraPartida) {
+        this.dataHoraPartida = dataHoraPartida;
+    }
+
+    public LocalDateTime getDataHoraChegada() {
+        return dataHoraChegada;
+    }
+
+    public void setDataHoraChegada(LocalDateTime dataHoraChegada) {
+        this.dataHoraChegada = dataHoraChegada;
     }
 
     public StatusViagemEnum getStatusViagem() {
