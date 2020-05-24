@@ -1,6 +1,7 @@
 # 35SCJ_WebServices_Vambora
 
 1. **Nome Aplicação:** Vambora!
+
 1. **Principais Funcionalidades:**
      * Cadastro de Usuario
      * Cadastro de Veiculos
@@ -39,7 +40,7 @@
 
         * Finalizar viagem  (Id Viagem)
             * Desembarque do cliente:
-                * ALterar status da viagem: Passageiro desembarcou
+                * Alterar status da viagem: Passageiro desembarcou
                 * Alterar status do carro: disponível
 
 1. **Possíveis Telas do Front-End:**

@@ -11,6 +11,8 @@ import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import br.com.fiap.scj35.vamborams.enums.StatusViagemEnum;
+
 @Entity
 @Table(name = "TB_VIAGENS")
 @EntityListeners(AuditingEntityListener.class)
@@ -37,6 +39,9 @@ public class Viagem {
 
     @Column
     private LocalDateTime chegada;
+
+    @Column
+    private StatusViagemEnum statusViagem;
 
     public Long getId() {
         return id;
@@ -92,6 +97,14 @@ public class Viagem {
 
     public void setChegada(LocalDateTime chegada) {
         this.chegada = chegada;
+    }
+
+    public StatusViagemEnum getStatusViagem() {
+        return statusViagem;
+    }
+
+    public void setStatusViagem(StatusViagemEnum statusViagem) {
+        this.statusViagem = statusViagem;
     }
 
 }

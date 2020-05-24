@@ -20,45 +20,53 @@ public class CarroDTO implements Serializable {
     public CarroDTO(Carro carro) {
         this.id             = carro.getId();
         this.placa          = carro.getPlaca();
-        this.disponivel     = carro.getDisponivel();
+        this.disponivel     = carro.isDiponivel();
         this.idUltimaViagem = carro.getIdUltimaViagem();
     }
 
-    
-
     public Long getId() {
-		return id;
-	}
+        return this.id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getPlaca() {
-		return placa;
-	}
+    public String getPlaca() {
+        return this.placa;
+    }
 
-	public void setPlaca(String placa) {
-		this.placa = placa;
-	}
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
 
-	public Boolean getDisponivel() {
-		return disponivel;
-	}
+    private Boolean getDisponivel() {
+        return this.disponivel;
+    }
 
-	public void setDisponivel(Boolean disponivel) {
-		this.disponivel = disponivel;
-	}
+    private void setDisponivel(Boolean disponivel) {
+        this.disponivel = disponivel;
+    }
 
-	public Long getIdUltimaViagem() {
-		return idUltimaViagem;
-	}
+    public Boolean isDiponivel() {
+        return this.getDisponivel();
+    }
 
-	public void setIdUltimaViagem(Long idUltimaViagem) {
-		this.idUltimaViagem = idUltimaViagem;
-	}
+    public Boolean toggleDisponivel() {
+        this.setDisponivel(!this.getDisponivel());
 
-	@Override
+        return this.disponivel;
+    }
+
+    public Long getIdUltimaViagem() {
+        return this.idUltimaViagem;
+    }
+
+    public void setIdUltimaViagem(Long idUltimaViagem) {
+        this.idUltimaViagem = idUltimaViagem;
+    }
+
+    @Override
     public String toString() {
         return new StringJoiner(", " ,CarroDTO.class.getSimpleName() + "[" ,"]")
                 .add("id=" + id)

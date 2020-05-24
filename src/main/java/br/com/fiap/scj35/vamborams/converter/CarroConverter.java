@@ -10,25 +10,27 @@ import br.com.fiap.scj35.vamborams.entity.Carro;
 
 @Service
 public class CarroConverter {
-	
-	public CarroDTO toDTO(Carro carro) {
-		return new CarroDTO(carro);
-	}
-	
-	public List<CarroDTO> toListDTO(List<Carro> carros){
-		return carros.stream().map(carro -> this.toDTO(carro)).collect(Collectors.toList());
-	}
-	
-	public Carro toEntity(CarroDTO carroDTO) {
-		Carro carro = new Carro();
-		carro.setId(carroDTO.getId());
-		carro.setPlaca(carroDTO.getPlaca());
-		carro.setIdUltimaViagem(carroDTO.getIdUltimaViagem());
-		return carro;
-	}
-	
-	public List<Carro> toListEntity(List<CarroDTO> carrosDTO){
-		return carrosDTO.stream().map(carro -> this.toEntity(carro)).collect(Collectors.toList());
-	}
+
+    public CarroDTO toDTO(Carro carro) {
+        return new CarroDTO(carro);
+    }
+
+    public List<CarroDTO> toListDTO(List<Carro> carros) {
+        return carros.stream().map(this::toDTO).collect(Collectors.toList());
+    }
+
+    public Carro toEntity(CarroDTO carroDTO) {
+        Carro carro = new Carro();
+
+        carro.setId(carroDTO.getId());
+        carro.setPlaca(carroDTO.getPlaca());
+        carro.setIdUltimaViagem(carroDTO.getIdUltimaViagem());
+
+        return carro;
+    }
+
+    public List<Carro> toListEntity(List<CarroDTO> carrosDTO) {
+        return carrosDTO.stream().map(this::toEntity).collect(Collectors.toList());
+    }
 
 }

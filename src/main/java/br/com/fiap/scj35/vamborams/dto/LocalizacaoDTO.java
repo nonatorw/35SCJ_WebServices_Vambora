@@ -62,9 +62,11 @@ public class LocalizacaoDTO implements Serializable {
 
     @Override
     public String toString() {
-        return new StringJoiner(", " ,LocalizacaoDTO.class.getSimpleName() + "[" ,"]").add("id=" + id).add(
-                "longitude=" + longitude).add("latitude=" + latitude).add("dataHoraLocalizacao=" + dataHoraLocalizacao)
-                                                                                      .toString();
+        return new StringJoiner(", " ,LocalizacaoDTO.class.getSimpleName() + "[" ,"]")
+                .add("id=" + id).add("longitude=" + longitude)
+                .add("latitude=" + latitude)
+                .add("dataHoraLocalizacao=" + dataHoraLocalizacao)
+                .toString();
     }
 
 }

@@ -1,11 +1,12 @@
-CREATE TABLE if not exists TB_VIAGENS (
-  id bigint NOT NULL AUTO_INCREMENT,
-  id_carro bigint,
-  id_cliente bigint,
-  id_localizacao_origem bigint,
-  id_localizacao_destino bigint,
-  partida timestamp,
-  chegada timestamp,
-  PRIMARY KEY (id)
+CREATE TABLE IF NOT EXISTS TB_VIAGENS
+(
+    ID                     BIGINT NOT NULL AUTO_INCREMENT ,
+    ID_CARRO               BIGINT ,
+    ID_CLIENTE             BIGINT ,
+    ID_LOCALIZACAO_ORIGEM  BIGINT ,
+    ID_LOCALIZACAO_DESTINO BIGINT ,
+    PARTIDA                TIMESTAMP ,
+    CHEGADA                TIMESTAMP ,
+    STATUS_VIAGEM          INTEGER ,
+    PRIMARY KEY (ID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-

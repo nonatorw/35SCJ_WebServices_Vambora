@@ -1,7 +1,6 @@
 package br.com.fiap.scj35.vamborams.controller;
 
 import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,31 +23,31 @@ public class CarroController {
 
     @Autowired
     private CarroService service;
-    
-    @GetMapping
+
+    @GetMapping("/disponivel")
     public CarroDTO findDisponivel() {
         return service.findByDisponivel().stream().findAny().orElse(null);
     }
-    
-    @GetMapping("/disponivel")
+
+    @GetMapping
     public List<CarroDTO> getAll() {
         return service.findAll();
     }
-    
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public CarroDTO create(@RequestBody @Valid CarroDTO carroDTO) {
-    	return service.create(carroDTO);
+        return service.create(carroDTO);
     }
-    
+
     @PutMapping
     public CarroDTO update(@RequestBody @Valid CarroDTO carroDTO) {
-    	return service.update(carroDTO);
+        return service.update(carroDTO);
     }
-    
+
     @DeleteMapping
     public void delete(@RequestBody @Valid CarroDTO carroDTO) {
-    	service.delete(carroDTO);
+        service.delete(carroDTO);
     }
 
 }

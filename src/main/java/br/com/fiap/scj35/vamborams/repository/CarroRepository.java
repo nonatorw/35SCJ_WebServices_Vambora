@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import br.com.fiap.scj35.vamborams.entity.Carro;
 
 public interface CarroRepository extends JpaRepository<Carro, Long> {
-	
-	List<Carro> findAllByDisponivel(Boolean disponivel);
+
+    List<Carro> findAllByDisponivel(Boolean disponivel);
 
 }

@@ -46,8 +46,11 @@ public class ClienteDTO {
 
     @Override
     public String toString() {
-        return new StringJoiner(", " ,ClienteDTO.class.getSimpleName() + "[" ,"]").add("id=" + id).add(
-                "nome='" + nome + "'").add("documento=" + documento).toString();
+        return new StringJoiner(", " ,ClienteDTO.class.getSimpleName() + "[" ,"]")
+                .add("id=" + id)
+                .add("nome='" + nome + "'")
+                .add("documento=" + documento)
+                .toString();
     }
 
 }

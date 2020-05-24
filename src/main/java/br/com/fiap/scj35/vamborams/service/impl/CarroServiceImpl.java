@@ -14,41 +14,45 @@ import br.com.fiap.scj35.vamborams.service.CarroService;
 
 @Service
 public class CarroServiceImpl implements CarroService {
-	
-	@Autowired
-	private CarroRepository repository;
-	
-	@Autowired
-	private CarroConverter converter;
 
-	@Override
-	public List<CarroDTO> findByDisponivel() {
-		List<Carro> carros = new ArrayList<Carro>();
-		carros.addAll(repository.findAllByDisponivel(Boolean.TRUE));
-		return carros.isEmpty() ? null : converter.toListDTO(carros);
-	}
+    @Autowired
+    private CarroRepository repository;
 
-	@Override
-	public List<CarroDTO> findAll() {
-		List<Carro> carros = repository.findAll();
-		return converter.toListDTO(carros);
-	}
-	
-	@Override
-	public CarroDTO create(CarroDTO carroDto) {
-		Carro carro = converter.toEntity(carroDto);
-		return converter.toDTO(repository.save(carro));
-	}
+    @Autowired
+    private CarroConverter converter;
 
-	@Override
-	public CarroDTO update(CarroDTO carroDto) {
-		Carro carro = converter.toEntity(carroDto);
-		return converter.toDTO(repository.save(carro));
-	}
+    @Override
+    public List<CarroDTO> findByDisponivel() {
+        List<Carro> carros = new ArrayList<>();
+        carros.addAll(repository.findAllByDisponivel(Boolean.TRUE));
 
-	@Override
-	public void delete(CarroDTO carro) {
-		repository.delete(converter.toEntity(carro));
-	}
-	
+        return carros.isEmpty() ? null : converter.toListDTO(carros);
+    }
+
+    @Override
+    public List<CarroDTO> findAll() {
+        List<Carro> carros = repository.findAll();
+
+        return converter.toListDTO(carros);
+    }
+
+    @Override
+    public CarroDTO create(CarroDTO carroDto) {
+        Carro carro = converter.toEntity(carroDto);
+
+        return converter.toDTO(repository.save(carro));
+    }
+
+    @Override
+    public CarroDTO update(CarroDTO carroDto) {
+        Carro carro = converter.toEntity(carroDto);
+
+        return converter.toDTO(repository.save(carro));
+    }
+
+    @Override
+    public void delete(CarroDTO carro) {
+        repository.delete(converter.toEntity(carro));
+    }
+
 }

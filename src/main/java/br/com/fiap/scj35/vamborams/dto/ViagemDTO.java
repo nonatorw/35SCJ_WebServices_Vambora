@@ -5,20 +5,22 @@ import java.time.LocalDateTime;
 import java.util.StringJoiner;
 
 import br.com.fiap.scj35.vamborams.entity.Viagem;
+import br.com.fiap.scj35.vamborams.enums.StatusViagemEnum;
 
 public class ViagemDTO implements Serializable {
-    private Long          id;
-    private Long          idCarro;
-    private Long          idCliente;
-    private Long          idLocalizacaoOrigem;
-    private Long          idLocalizacaoDestino;
-    private LocalDateTime partida;
-    private LocalDateTime chegada;
+    private Long             id;
+    private Long             idCarro;
+    private Long             idCliente;
+    private Long             idLocalizacaoOrigem;
+    private Long             idLocalizacaoDestino;
+    private LocalDateTime    partida;
+    private LocalDateTime    chegada;
+    private StatusViagemEnum statusViagem;
 
     public ViagemDTO() {}
 
     public ViagemDTO(Long id ,Long idCarro ,Long idCliente ,Long idLocalizacaoOrigem ,Long idLocalizacaoDestino ,
-                     LocalDateTime partida ,LocalDateTime chegada) {
+                     LocalDateTime partida ,LocalDateTime chegada ,StatusViagemEnum statusViagem) {
         this.id                   = id;
         this.idCarro              = idCarro;
         this.idCliente            = idCliente;
@@ -26,6 +28,7 @@ public class ViagemDTO implements Serializable {
         this.idLocalizacaoDestino = idLocalizacaoDestino;
         this.partida              = partida;
         this.chegada              = chegada;
+        this.statusViagem         = statusViagem;
     }
 
     public ViagemDTO(Viagem viagem) {
@@ -36,6 +39,7 @@ public class ViagemDTO implements Serializable {
         this.idLocalizacaoDestino = viagem.getIdLocalizacaoDestino();
         this.partida              = viagem.getPartida();
         this.chegada              = viagem.getChegada();
+        this.statusViagem         = viagem.getStatusViagem();
     }
 
     public Long getId() {
@@ -97,13 +101,14 @@ public class ViagemDTO implements Serializable {
     @Override
     public String toString() {
         return new StringJoiner(", " ,ViagemDTO.class.getSimpleName() + "[" ,"]")
-                .add("id=" + id)
+                .add("id =" + id)
                 .add("idCarro=" + idCarro)
                 .add("idCliente=" + idCliente)
                 .add("idLocalizacaoOrigem=" + idLocalizacaoOrigem)
                 .add("idLocalizacaoDestino=" + idLocalizacaoDestino)
                 .add("partida=" + partida)
                 .add("chegada=" + chegada)
+                .add("statusViagem=" + statusViagem)
                 .toString();
     }
 
