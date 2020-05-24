@@ -28,36 +28,38 @@ public class Carro {
     @Column
     private Long idUltimaViagem;
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getPlaca() {
-        return placa;
-    }
+	public String getPlaca() {
+		return placa;
+	}
 
-    public void setPlaca(String nome) {
-        this.placa = nome;
-    }
+	public void setPlaca(String placa) {
+		this.placa = placa;
+	}
 
-    public Boolean isDisponivel() {
-        return this.isDisponivel();
-    }
+	public Boolean getDisponivel() {
+		return disponivel;
+	}
 
-    public void toggleDisponivel() {
-        this.disponivel = !this.isDisponivel();
-    }
+	public void setDisponivel(Boolean disponivel) {
+		this.disponivel = disponivel;
+	}
 
-    public Long getIdUltimaViagem() {
-        return idUltimaViagem;
-    }
+	public Long getIdUltimaViagem() {
+		return idUltimaViagem;
+	}
 
-    public void setIdUltimaViagem(Long idUltimaViagem) {
-        this.idUltimaViagem = idUltimaViagem;
-    }
+	public void setIdUltimaViagem(Long idUltimaViagem) {
+		this.idUltimaViagem = idUltimaViagem;
+	}
+
+    
 
 }

@@ -20,43 +20,45 @@ public class CarroDTO implements Serializable {
     public CarroDTO(Carro carro) {
         this.id             = carro.getId();
         this.placa          = carro.getPlaca();
-        this.disponivel     = carro.isDisponivel();
+        this.disponivel     = carro.getDisponivel();
         this.idUltimaViagem = carro.getIdUltimaViagem();
     }
 
+    
+
     public Long getId() {
-        return id;
-    }
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getPlaca() {
-        return placa;
-    }
+	public String getPlaca() {
+		return placa;
+	}
 
-    public void setPlaca(String placa) {
-        this.placa = placa;
-    }
+	public void setPlaca(String placa) {
+		this.placa = placa;
+	}
 
-    public Boolean isDisponivel() {
-        return this.isDisponivel();
-    }
+	public Boolean getDisponivel() {
+		return disponivel;
+	}
 
-    public void toggleDisponivel() {
-        this.disponivel = !this.isDisponivel();
-    }
+	public void setDisponivel(Boolean disponivel) {
+		this.disponivel = disponivel;
+	}
 
-    public Long getIdUltimaViagem() {
-        return idUltimaViagem;
-    }
+	public Long getIdUltimaViagem() {
+		return idUltimaViagem;
+	}
 
-    public void setIdUltimaViagem(Long idUltimaViagem) {
-        this.idUltimaViagem = idUltimaViagem;
-    }
+	public void setIdUltimaViagem(Long idUltimaViagem) {
+		this.idUltimaViagem = idUltimaViagem;
+	}
 
-    @Override
+	@Override
     public String toString() {
         return new StringJoiner(", " ,CarroDTO.class.getSimpleName() + "[" ,"]")
                 .add("id=" + id)
