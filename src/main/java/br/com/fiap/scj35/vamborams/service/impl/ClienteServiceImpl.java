@@ -3,6 +3,7 @@ package br.com.fiap.scj35.vamborams.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.com.fiap.scj35.vamborams.converter.ClienteConverter;
 import br.com.fiap.scj35.vamborams.dto.ClienteDTO;
@@ -10,6 +11,7 @@ import br.com.fiap.scj35.vamborams.entity.Cliente;
 import br.com.fiap.scj35.vamborams.repository.ClienteRepository;
 import br.com.fiap.scj35.vamborams.service.ClienteService;
 
+@Service
 public class ClienteServiceImpl implements ClienteService {
 
     @Autowired

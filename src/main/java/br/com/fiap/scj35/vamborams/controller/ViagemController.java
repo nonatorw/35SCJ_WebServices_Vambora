@@ -17,15 +17,15 @@ public class ViagemController {
 
     @Autowired
     private ViagemService service;
-
+    
     @GetMapping("/viagens")
     public List<ViagemDTO> buscaViagensDoCliente(Long idCliente) {
-        return null;
+    	return service.findByCliente(idCliente);
     }
 
     @PostMapping
     public ViagemDTO solicitaViagem(Long idCliente) {
-        return null;
+        return service;
     }
 
 }
