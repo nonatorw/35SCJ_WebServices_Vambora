@@ -25,7 +25,7 @@ public class ViagemController {
 
     @PostMapping
     public ViagemDTO solicitaViagem(Long idCliente) {
-        return service;
+        return service.criarViagem(idCliente);
     }
 
 }
