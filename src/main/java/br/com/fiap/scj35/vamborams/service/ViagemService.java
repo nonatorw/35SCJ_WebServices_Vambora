@@ -2,6 +2,7 @@ package br.com.fiap.scj35.vamborams.service;
 
 import java.util.List;
 
+import br.com.fiap.scj35.vamborams.dto.LocalizacaoDTO;
 import br.com.fiap.scj35.vamborams.dto.ViagemDTO;
 
 public interface ViagemService {
@@ -12,6 +13,6 @@ public interface ViagemService {
 
     ViagemDTO update(ViagemDTO viagem);
     
-    ViagemDTO criarViagem(Long idCliente);
+    ViagemDTO criarViagem(Long idCliente, LocalizacaoDTO origem, LocalizacaoDTO destino);
 
 }

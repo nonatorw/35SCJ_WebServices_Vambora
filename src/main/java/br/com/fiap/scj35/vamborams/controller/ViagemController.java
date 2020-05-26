@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.fiap.scj35.vamborams.dto.LocalizacaoDTO;
 import br.com.fiap.scj35.vamborams.dto.ViagemDTO;
 import br.com.fiap.scj35.vamborams.service.ViagemService;
 
@@ -24,8 +26,8 @@ public class ViagemController {
     }
 
     @PostMapping
-    public ViagemDTO solicitaViagem(Long idCliente) {
-        return service.criarViagem(idCliente);
+    public ViagemDTO solicitaViagem(Long idCliente, @RequestBody LocalizacaoDTO origem, @RequestBody LocalizacaoDTO destino ) {
+        return service.criarViagem(idCliente, origem, destino);
     }
 
 }

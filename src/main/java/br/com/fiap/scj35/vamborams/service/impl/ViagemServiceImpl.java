@@ -1,7 +1,6 @@
 package br.com.fiap.scj35.vamborams.service.impl;
 
 import java.util.List;
-import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -74,31 +73,18 @@ public class ViagemServiceImpl implements ViagemService {
     }
     
     @Override
-    public ViagemDTO criarViagem(Long idCliente) {
+    public ViagemDTO criarViagem(Long idCliente, LocalizacaoDTO origem, LocalizacaoDTO destino) {
     	CarroDTO carroDisponivel = carroService.findByDisponivel().stream()
     			.findAny().get();
     	
-    	Random random = new Random();
-    	
-    	LocalizacaoDTO localizacao = new LocalizacaoDTO();
-    	
-    	localizacao.setLatitude(random.nextDouble());
-    	localizacao.setLongitude(random.nextDouble());
-    	
-    	LocalizacaoDTO localizacaoOrigem;
-    	localizacaoOrigem = localizacaoService.createOrUpdate(localizacao);
-    	
-    	localizacao.setLatitude(random.nextDouble());
-    	localizacao.setLongitude(random.nextDouble());
-    	
-    	LocalizacaoDTO localizacaoDestino;
-    	localizacaoDestino = localizacaoService.createOrUpdate(localizacao);
+    	LocalizacaoDTO origemSalva = localizacaoService.createOrUpdate(origem);
+    	LocalizacaoDTO destinoSalvo = localizacaoService.createOrUpdate(destino);
     	
     	ViagemDTO viagem = new ViagemDTO();
     	viagem.setIdCliente(idCliente);
     	viagem.setIdCarro(carroDisponivel.getId());
-    	viagem.setIdLocalizacaoOrigem(localizacaoOrigem.getId());
-    	viagem.setIdLocalizacaoDestino(localizacaoDestino.getId());
+    	viagem.setIdLocalizacaoOrigem(origemSalva.getId());
+    	viagem.setIdLocalizacaoDestino(destinoSalvo.getId());
     	viagem.setStatusViagem(StatusViagemEnum.CARRO_INDO_AO_CLIENTE);
     	
     	return viagem;
