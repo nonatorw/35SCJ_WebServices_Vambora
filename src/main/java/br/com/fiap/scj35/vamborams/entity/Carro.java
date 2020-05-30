@@ -44,22 +44,12 @@ public class Carro {
 		this.placa = placa;
 	}
 
-	private Boolean getDisponivel() {
-		return this.disponivel;
+	public Boolean getDisponivel() {
+		return disponivel;
 	}
 
-	private void setDisponivel(Boolean disponivel) {
+	public void setDisponivel(Boolean disponivel) {
 		this.disponivel = disponivel;
-	}
-
-	public Boolean isDiponivel() {
-		return this.getDisponivel();
-	}
-
-	public Boolean toggleDisponivel() {
-		this.setDisponivel(!this.getDisponivel());
-
-		return this.disponivel;
 	}
 
 	public Long getIdUltimaViagem() {

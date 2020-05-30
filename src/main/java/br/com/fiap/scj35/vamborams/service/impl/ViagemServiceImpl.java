@@ -61,6 +61,11 @@ public class ViagemServiceImpl implements ViagemService {
     public List<ViagemDTO> findByCliente(Long idCliente) {
         return this.handleReturnedViagemList(repository.findByIdCliente(idCliente));
     }
+    
+    @Override
+    public ViagemDTO findById(Long id) {
+    	return converter.toDTO(repository.findById(id).orElse(null));
+    }
 
     @Override
     public ViagemDTO create(ViagemDTO viagemDTO) {
@@ -73,21 +78,32 @@ public class ViagemServiceImpl implements ViagemService {
     }
     
     @Override
-    public ViagemDTO criarViagem(Long idCliente, LocalizacaoDTO origem, LocalizacaoDTO destino) {
+    public ViagemDTO criarViagem(ViagemDTO viagem, LocalizacaoDTO origem, LocalizacaoDTO destino) {
     	CarroDTO carroDisponivel = carroService.findByDisponivel().stream()
     			.findAny().get();
     	
     	LocalizacaoDTO origemSalva = localizacaoService.createOrUpdate(origem);
     	LocalizacaoDTO destinoSalvo = localizacaoService.createOrUpdate(destino);
     	
-    	ViagemDTO viagem = new ViagemDTO();
-    	viagem.setIdCliente(idCliente);
     	viagem.setIdCarro(carroDisponivel.getId());
     	viagem.setIdLocalizacaoOrigem(origemSalva.getId());
     	viagem.setIdLocalizacaoDestino(destinoSalvo.getId());
     	viagem.setStatusViagem(StatusViagemEnum.CARRO_INDO_AO_CLIENTE);
     	
-    	return viagem;
+    	carroDisponivel.setDisponivel(Boolean.FALSE);
+    	carroService.update(carroDisponivel);
+    	
+    	return this.create(viagem);
     }
+
+	@Override
+	public List<ViagemDTO> findByStatusViagem(StatusViagemEnum status) {
+		return converter.toListDTO(repository.findByStatusViagem(status));
+	}
+
+	@Override
+	public List<ViagemDTO> getAll() {
+		return converter.toListDTO(repository.findAll());
+	}
 
 }

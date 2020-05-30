@@ -28,6 +28,11 @@ public class CarroController {
     public CarroDTO findDisponivel() {
         return service.findByDisponivel().stream().findAny().orElse(null);
     }
+    
+    @GetMapping("/disponiveis")
+    public List<CarroDTO> getAllDisponiveis() {
+        return service.findByDisponivel();
+    }
 
     @GetMapping
     public List<CarroDTO> getAll() {

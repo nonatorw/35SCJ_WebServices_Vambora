@@ -25,6 +25,7 @@ public class CarroConverter {
         carro.setId(carroDTO.getId());
         carro.setPlaca(carroDTO.getPlaca());
         carro.setIdUltimaViagem(carroDTO.getIdUltimaViagem());
+        carro.setDisponivel(carroDTO.getDisponivel());
 
         return carro;
     }
